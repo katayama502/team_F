@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="./css/style.css" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>じゃんけんゲーム！</title>
+    </head>
+
+    <script>
+        // サイコロ関数の作成
+        function Saikoro() {
+
+            // JavaScriptでの乱数の発生と端数切り捨ての処理
+            let janken_p = Math.floor( Math.random() * 3) +1;
+
+            // Switch文でじゃんけんの出力を作成
+            switch(janken_p){
+                case 1: $janken_p = "パー";
+                break;
+                case 2: $janken_p = "グー";
+                break;
+                case 3: $janken_p = "チョキ";
+                break;
+            }
+            // ドキュメントで指定のIDに対して出力する内容をセットする処理作成⭐️
+            document.getElementById("").innerHTML = $janken_p;
+            document.getElementById("").src= "" + janken_p + "";
+
+            // JavaScriptでの乱数の発生と端数切り捨ての処理
+            let janken_a = Math.floor( Math.random() * 3) +1;
+
+            // Switch文でじゃんけんの出力を作成
+            switch(janken_a){
+                case 1: $janken_a = "パー";
+                break;
+                case 2: $janken_a = "グー";
+                break;
+                case 3: $janken_a = "チョキ";
+                break;
+            }
+            // ドキュメントで指定のIDに対して出力する内容をセットする処理作成⭐️
+            document.getElementById("").innerHTML = $janken_a;
+            document.getElementById("").src= "" + janken_a + "";
+            
+            // じゃんけんに必須な勝ち負けの判定処理を作成⭐️
+            switch(janken_p){
+                case 1:switch(janken_a){
+                        case 1: $kekka = "";
+                        break;
+                        case 2: $kekka = "";
+                        break;
+                        case 3: $kekka = "";
+                        break;
+                        }
+                break;
+                case 2:switch(janken_a){
+                        case 1: $kekka = "";
+                        break;
+                        case 2: $kekka = "";
+                        break;
+                        case 3: $kekka = "";
+                        break;
+                        }
+                break;
+                case 3:switch(janken_a){
+                        case 1: $kekka = "";
+                        break;
+                        case 2: $kekka = "";
+                        break;
+                        case 3: $kekka = "";
+                        break;
+                        }
+                break;
+            }
+            // ドキュメントで指定のIDに対して出力する内容をセットする処理作成⭐️
+            document.getElementById("").innerHTML = $kekka;
+        }
+    </script>
+
+    <body>
+        <!-- じゃんけんの結果出力箇所作成 -->
+        <p id="play"></p><br>
+
+        <!-- じゃんけん開始ボタンを作成して関数セット！ -->
+        <p id = "but"><a onclick="Saikoro();">じゃんけん！</a></p>
+
+        <div id = "attribute">
+
+            <!-- プレイヤー側の出力箇所を作成 -->
+            <div class="item">
+                <h2>プレイヤー</h2>
+                <!-- プレイヤーのじゃんけん画像出力箇所作成 -->
+                <p><img id="Player" src="img/furee.jpg" ></p>
+                <!-- プレイヤーのじゃんけんの文字出力箇所作成 -->
+                <p id="janken_p"></p>
+            </div>
+
+            <!-- AI側の出力箇所を作成 -->
+            <div class="item">
+                <h2>AI</h2>
+                <!-- AIのじゃんけん画像出力箇所作成 -->
+                <p><img id="ai" src="img/furee.jpg" ></p>
+                <!-- AIののじゃんけんの文字出力箇所作成 -->
+                <p id="janken_a"></p>
+            </div>
+
+        </div>
+
+    </body>
+
+</html>
+
+

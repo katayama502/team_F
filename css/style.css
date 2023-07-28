@@ -1,0 +1,19 @@
+#attribute{
+    display: flex;
+    flex-direction: row;
+}
+#Player,#ai{
+    width: 60%;
+    height: 150px;
+    padding: 0em 1em;
+    margin: 0.5% 1.3%;
+    font-weight: bold;
+    color: #40ff00;
+    background: #FFF;
+    border: solid 6px #0175fabd;
+    border-radius: 20px;
+    
+}
+p{
+    text-align: center;
+}
