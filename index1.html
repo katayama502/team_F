@@ -7,15 +7,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>じゃんけんゲーム！</title>
     </head>
-
     <script>
-        // サイコロ関数の作成
+        // ①サイコロ関数の作成
         function Saikoro() {
-
-            // JavaScriptでの乱数の発生と端数切り捨ての処理
+            // ②JavaScriptでの乱数の発生と端数切り捨ての処理
             let janken_p = Math.floor( Math.random() * 3) +1;
-
-            // Switch文でじゃんけんの出力を作成
+            // ③Switch文でじゃんけんの出力を作成
             switch(janken_p){
                 case 1: $janken_p = "パー";
                 break;
@@ -24,14 +21,12 @@
                 case 3: $janken_p = "チョキ";
                 break;
             }
-            // ドキュメントで指定のIDに対して出力する内容をセットする処理作成⭐️
-            document.getElementById("").innerHTML = $janken_p;
-            document.getElementById("").src= "" + janken_p + "";
-
-            // JavaScriptでの乱数の発生と端数切り捨ての処理
+            // ④ドキュメントで指定のIDに対して出力する内容をセットする処理作成
+            document.getElementById("janken_p_html").innerHTML = $janken_p;
+            document.getElementById("Player_src").src= "img/janken/janken_" + janken_p + ".jpg";
+            // ⑤JavaScriptでの乱数の発生と端数切り捨ての処理
             let janken_a = Math.floor( Math.random() * 3) +1;
-
-            // Switch文でじゃんけんの出力を作成
+            // ⑥Switch文でじゃんけんの出力を作成
             switch(janken_a){
                 case 1: $janken_a = "パー";
                 break;
@@ -40,76 +35,77 @@
                 case 3: $janken_a = "チョキ";
                 break;
             }
-            // ドキュメントで指定のIDに対して出力する内容をセットする処理作成⭐️
-            document.getElementById("").innerHTML = $janken_a;
-            document.getElementById("").src= "" + janken_a + "";
+            // ⑦ドキュメントで指定のIDに対して出力する内容をセットする処理作成
+            document.getElementById("janken_a_html").innerHTML = $janken_a;
+            document.getElementById("ai_src").src= "img/janken/janken_" + janken_a + ".jpg";
             
-            // じゃんけんに必須な勝ち負けの判定処理を作成⭐️
+            // ⑧じゃんけんに必須な勝ち負けの判定処理を作成
             switch(janken_p){
                 case 1:switch(janken_a){
-                        case 1: $kekka = "";
+                        case 1: $kekka = "あいこ";
                         break;
-                        case 2: $kekka = "";
+                        case 2: $kekka = "勝ち";
                         break;
-                        case 3: $kekka = "";
+                        case 3: $kekka = "負け";
                         break;
                         }
                 break;
                 case 2:switch(janken_a){
-                        case 1: $kekka = "";
+                        case 1: $kekka = "負け";
                         break;
-                        case 2: $kekka = "";
+                        case 2: $kekka = "あいこ";
                         break;
-                        case 3: $kekka = "";
+                        case 3: $kekka = "勝ち";
                         break;
                         }
                 break;
                 case 3:switch(janken_a){
-                        case 1: $kekka = "";
+                        case 1: $kekka = "勝ち";
                         break;
-                        case 2: $kekka = "";
+                        case 2: $kekka = "負け";
                         break;
-                        case 3: $kekka = "";
+                        case 3: $kekka = "あいこ";
                         break;
                         }
                 break;
             }
-            // ドキュメントで指定のIDに対して出力する内容をセットする処理作成⭐️
-            document.getElementById("").innerHTML = $kekka;
+            // ⑨ドキュメントで指定のIDに対して出力する内容をセットする処理作成
+            document.getElementById("play_html").innerHTML = $kekka;
         }
     </script>
-
     <body>
-        <!-- じゃんけんの結果出力箇所作成 -->
-        <p id="play"></p><br>
-
-        <!-- じゃんけん開始ボタンを作成して関数セット！ -->
-        <p id = "but"><a onclick="Saikoro();">じゃんけん！</a></p>
-
-        <div id = "attribute">
-
-            <!-- プレイヤー側の出力箇所を作成 -->
-            <div class="item">
-                <h2>プレイヤー</h2>
-                <!-- プレイヤーのじゃんけん画像出力箇所作成 -->
-                <p><img id="Player" src="img/furee.jpg" ></p>
-                <!-- プレイヤーのじゃんけんの文字出力箇所作成 -->
-                <p id="janken_p"></p>
+        <div class="box">
+            <!-- じゃんけん開始ボタンを作成して関数セット！ -->
+            <div class="botun">
+                <p class="btn btn--orange btn--radius" ><a onclick="Saikoro();">じゃんけん！</a></p>
             </div>
 
-            <!-- AI側の出力箇所を作成 -->
-            <div class="item">
-                <h2>AI</h2>
-                <!-- AIのじゃんけん画像出力箇所作成 -->
-                <p><img id="ai" src="img/furee.jpg" ></p>
-                <!-- AIののじゃんけんの文字出力箇所作成 -->
-                <p id="janken_a"></p>
-            </div>
+            <div id = "attribute">
+                <!-- プレイヤー側の出力箇所を作成 -->
+                <div class="item">
+                    <h2>プレイヤー</h2>
+                    <!-- プレイヤーのじゃんけん画像出力箇所作成 -->
+                    <p><img id="Player_src" src="img/furee.jpg" ></p>
+                    <!-- プレイヤーのじゃんけんの文字出力箇所作成 -->
+                    <p id="janken_p_html"></p>
+                </div>
 
+                <!-- AI側の出力箇所を作成 -->
+                <div class="item">
+                    <h2>AI</h2>
+                    <!-- AIのじゃんけん画像出力箇所作成 -->
+                    <p><img id="ai_src" src="img/furee.jpg" ></p>
+                    <!-- AIののじゃんけんの文字出力箇所作成 -->
+                    <p id="janken_a_html"></p>
+                </div>
+
+            </div>
+            <!-- じゃんけんの結果出力箇所作成 -->
+            <div class="frame">
+                <p id="play_html"></p>
+            </div>
         </div>
-
     </body>
-
 </html>
 
 
